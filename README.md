@@ -1,20 +1,16 @@
-# Getting Started with Create React App
+## Problem 1: Explain what the simple List component does.
+Solution: The Simple List component is a React component that generates an unordered list of items. Each item is a clickable element that toggles its background color between green and red, indicating whether it is selected or not.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Problem 2: What problems / warnings are there with code?
+Solution: There are a few issues with the original code:
+1.) The onClickHandler in WrappedSingleListItem is called immediately instead of being passed as a function.
+<code><li style={{ backgroundColor: isSelected ? 'green' : 'red'}} onClick={onClickHandler(index)}>{text}</li></code>
 
-## Available Scripts
+2.) The setSelectedIndex hook in WrappedListComponent is initialized as null, but its default value is undefined, causing a warning.
+3.) The PropTypes shape for the items prop is incorrect; it should be PropTypes.arrayOf(PropTypes.shape({text: PropTypes.string.isRequired})).
 
-In the project directory, you can run:
+## Problem 3: Please fix, optimize, and/or modify the component as much as you think is necessary.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
